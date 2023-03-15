@@ -30,10 +30,22 @@ class AnswerType(DjangoObjectType):
 
 
 class Query(graphene.ObjectType):
-    pass
+    
+    #all_quizzes = DjangoListField(QuizzesType)
+    #all_quizzes = graphene.List(QuizzesType)
+    # all_quizzes = graphene.Field(QuizzesType, id = graphene.Int())
+    # all_questions = graphene.List(QuestionType)
+
+    ## query relations
+    all_questions = graphene.Field(QuestionType, id = graphene.Int())
+    all_answers = graphene.List(AnswerType, id=graphene.Int())
 
 
-
+    def resolve_all_quetions(root, info, id):
+        return Question.objects.get(pk=id)
+    
+    def resolve_all_answers(root, info, id):
+        return Answer.objects.filter(question=id)
 
 
 
