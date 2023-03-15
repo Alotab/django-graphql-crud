@@ -49,3 +49,15 @@ query {
 }
 
 ```
+
+`Send data to the backend or server / mutation`
+
+```
+mutation {
+	updateCategory(name: "newcat") {
+    category {
+      name
+    }
+  }
+}
+```

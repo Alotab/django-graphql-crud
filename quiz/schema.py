@@ -49,4 +49,26 @@ class Query(graphene.ObjectType):
 
 
 
-schema  = graphene.Schema(query=Query)
+
+
+class CategoryMutation(graphene.Mutation):
+
+    class Arguments:
+        name = graphene.String(required=True)
+    
+    category = graphene.Field(CategoryType)
+
+    @classmethod
+    def mutate(cls, root, info, name):
+        category = Category(name=name)
+        category.save()
+
+        return CategoryMutation(category=category)
+
+
+
+
+class Mutation(graphene.ObjectType):
+    update_category = CategoryMutation.Field()
+
+schema  = graphene.Schema(query=Query, mutation=Mutation)
