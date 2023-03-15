@@ -5,7 +5,7 @@
 ## Query to fetch data from the server
 
 ```
-`query` {
+query {
     allQuizzes{
         id
         title
@@ -14,7 +14,7 @@
 ```
 
 ```
-`query` {
+query {
   allQuizzes{
     id
     title
@@ -39,7 +39,7 @@ query {
 `Query using foreign key`
 
 ```
-`query` {
+query {
   allQuestions(id: 1){
     title
   }
