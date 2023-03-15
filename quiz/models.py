@@ -41,7 +41,7 @@ class Question(models.Model):
     is_active = models.BooleanField(default=False, verbose_name=_('Active Status'))
 
     def __str__(self) -> str:
-        return self.quiz
+        return self.title
 
 
 
