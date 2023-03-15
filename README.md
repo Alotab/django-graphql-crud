@@ -50,6 +50,8 @@ query {
 
 ```
 
+## Use CRUD / Mutation to manipulate data from the backend
+
 `Send data to the backend or server / mutation`
 
 ```
@@ -57,6 +59,30 @@ mutation {
 	updateCategory(name: "newcat") {
     category {
       name
+    }
+  }
+}
+```
+
+`Update date using the ID and name`
+
+```
+mutation {
+	updateCategory(id: 5, name: "Machine Learning"){
+    category{
+      name
+    }
+  }
+}
+```
+
+`Delete data using the ID`
+
+```
+mutation {
+	deleteCategory(id: 5){
+    category{
+      id
     }
   }
 }
